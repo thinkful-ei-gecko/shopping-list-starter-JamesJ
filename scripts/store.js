@@ -16,7 +16,7 @@ const store = (function() {
   let searchTerm = '';                 // search term string
 
   let findByID = function(id) {
-    this.items.find(item => id === item.id);
+    return this.items.find(item => id === item.id);
   };
 
   let addItem = function(name) {
@@ -29,7 +29,8 @@ const store = (function() {
   };
 
   let findAndToggleChecked = function(id) {
-    this.findByID(id).checked = !this.findByID(id).checked; 
+    const checkedItem = this.findByID(id);
+    checkedItem.checked = !checkedItem.checked;
   };
 
   let findAndUpdateName = function(id, newName) {
